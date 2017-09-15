@@ -1,0 +1,17 @@
+BooTheDog.html
+- Added H1 Tag to the Heading Text
+- Added missing P tags, open and closing
+- Copied URL to the WIKI in the <a href...> tagAdded < /> to the image tag
+- Tried to match indentation 
+- Moved Image resize image panel to before the change text color panel
+- Added opening and closing <li> tags to Favorite Things list
+- Fixed reference to logic.js file
+- Corrected color ID references to correct matching color
+- Moved the last row above the second to last row
+
+
+logic.js
+- added quotes to color "pink"
+- Added quotes to "click" for the boxGrow
+- Added quotes to "click" for the boxShrink
+- Added missing quotes to the Boo Random Facts panel

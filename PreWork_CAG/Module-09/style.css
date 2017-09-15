@@ -1,0 +1,19 @@
+h1 { text-align: center;  }
+
+.red { color: red; }
+.blue { color: blue; }
+.green { color: green; }
+.orange { color: orange; }
+
+.big { font-size: 200%; }
+.tiny { font-size: 50%; }
+
+.centered { text-align: center; }
+
+.bold { font-weight: bold; }
+
+.courier { font-family: "courier"; }
+
+.styledFont { color: green; }
+
+#styledImage { border: 20px solid rgb(200,200,200); }
