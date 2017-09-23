@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Open+Sans|Slabo+27px');
+
+body {
+	font-size: 200%;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 50%;
+}
+
+h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bolder;
+}
+
+.one {
+	font-family: 'Slabo 27px', serif;
+	line-height: 1.5em;
+	padding-bottom: 50px;
+}
+
+.two {
+	font-family: 'Bad Script', cursive;
+	line-height: 1.5em;
+	padding-bottom: 50px;
+}
