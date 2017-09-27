@@ -1,0 +1,38 @@
+/**
+ * Google Fonts Demo
+ **/
+
+/* Add in the Google Fonts of your choice */
+
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Open+Sans|Slabo+27px');
+
+body {
+	font-size: 200%;
+	line-height: 1.5em;
+	padding: 0 25%;
+
+}
+
+h1 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	font-family: 'Slabo 27px', serif;
+}
+
+p {
+	font-family: 'Bad Script', cursive;
+}
+
+.thought2 {
+	font-family: 'Slabo 27px', serif;
+}
+
+.thought3 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+p:hover {
+	color: red;
+}

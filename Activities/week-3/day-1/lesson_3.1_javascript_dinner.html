@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data types, user input, conditional logic</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		// do they want steak
+		var eatSteak = confirm("Do you eat steak?");
+		//alert(eatSteak);
+
+		// have option for steak and no steak
+		if(eatSteak) {
+			//alert("Yes! Meat!");
+			document.write("Enjoy your steak!");
+		} else {
+			//alert("No food with a face");
+			document.write("Quinoa and roasted tomatoes!");
+		}
+
+		// ask when they were born
+		var year = prompt("What year were you born?");
+
+		// can they have sake
+		if (year < 1995) {
+			alert("Saaaaaaake!");
+		}
+		else if (year > 1995) {
+			alert("Why didn't you lie?");
+		}
+		else {
+			alert("Barely!");
+		}
+
+	</script>
+
+</body>
+</html>
