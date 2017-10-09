@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hangman game</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #wrapper {
+        background-color: rgb(240, 240, 240);
+        margin: 0 auto;
+        padding: 100px;
+        width: 960px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>What word am I thinking of?</h1>
+        <div id="displayAsteriks" style="font-size: 1000%;"></div>
+        <div id="youGuessed" style="font-size: 500%;"></div>
+    </div>
+
+    <script type="text/javascript">
+    // press any key to begin - press any key to start program or to execute function
+
+    // select word from array
+
+    var hangWords = ["red", "green", "blue"];
+
+    var hangWord = hangWords[Math.floor(Math.random() * hangWords.length)];
+
+    console.log(hangWord);
+
+    // loop through letters to generate a dash for each
+
+    // Determine how many letters in selcted variable "hangWord"
+
+    // var asteriks = hangWord.length;
+
+    // console.log(asteriksNeeded);
+
+    var asteriks;
+    var asterik = [];
+
+    for (var i = 0; i < hangWord.length; i++) {
+        asterik[i] = "<span class=\""+ hangWord[i] +"\">*</span>";
+    };
+
+    for (var i = 0; i < hangWord.length; i++) {
+        console.log(hangWord[i]);
+    };
+
+    asteriks = asterik.join("    ");
+    document.getElementById("displayAsteriks").innerHTML = asteriks;
+    console.log(asteriks);
+
+
+    // run event when a letter is typed 
+
+    document.onkeyup = function() {
+        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        console.log(userGuess);
+        document.getElementById("youGuessed").innerHTML = userGuess;
+        // var hangwordTwo = hangWord;
+        // console.log(hangwordTwo + "hangwordTwo");
+
+        for (var i = 0; i < hangWord.length; i++){
+        	if (userGuess === hangWord[i]){
+        		// alert("Match")
+        	document.getElementsByClassName(hangWord[i]).innerHTML = userGuess;
+
+        	} else alert("No Match")
+        };
+    };
+    </script>
+</body>
+
+</html>

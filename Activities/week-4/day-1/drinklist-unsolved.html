@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Content!</title>
+</head>
+
+<body>
+    <h1>Drink Selection!</h1>
+    <hr>
+    <!-- Here we create a generic drink-options div -->
+    <div id="drink-options"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    
+
+    // -------------- Vanilla JS
+    // Array holds all of the drinks available
+
+    var drinkList = [
+        "Coffee: $5",
+        "Espresso: $7",
+        "Cappuccino: $6",
+        "Latte: $4",
+        "Tea: $3",
+        "Ice Coffee: $6",
+        "Ice Espresso: $8",
+        "Ice Latte: $6",
+        "Ice Tea: $4"
+    ];
+
+    // 1. Create code that "grabs" the div with the matching id (#drink-options);
+    // ...
+
+    var drinks = document.getElementById("drink-options");
+    var parent = document.getElementById("drink-options");
+    var ol = document.createElement("ol");
+
+    // ...
+
+
+    // 2. Create a for loop that creates HTML content of all the drinks using JavaScript.
+    // HINT: You will need to use each of the following methods: createElement, innerHTML, appendChild
+    // ...
+
+    for (var i = 0; i < drinkList.length; i++) {
+        document.write(drinkList[i] + '<br>');
+        var listItem = document.createElement("li");
+        listItem.innerHTML = drinkList[i];
+        ol.appendChild(listItem);
+
+        var newDiv = $("drinkList[i]");
+    }
+
+    // -------------- Vanilla JS
+
+/*
+
+    // -------------- jQuery
+
+    // Array holds all of the drinks available
+    var drinkList = [
+        "Coffee: $5",
+        "Espresso: $7",
+        "Cappuccino: $6",
+        "Latte: $4",
+        "Tea: $3",
+        "Ice Coffee: $6",
+        "Ice Espresso: $8",
+        "Ice Latte: $6",
+        "Ice Tea: $4"
+    ];
+
+    // 1. Create code that "grabs" the div with the matching id (#drink-options);
+    // ...
+
+    var drinkOpts = $("#drink-options"); // jQuery alternative
+
+    // ...
+
+
+    // 2. Create a for loop that creates HTML content of all the drinks using JavaScript.
+    // HINT: You will need to use each of the following methods: createElement, innerHTML, appendChild
+    // ...
+
+    for (var i = 0; i < drinkList.length; i++) {
+        var drinkDiv = $("<div>");
+        drinkDiv.html(drinkList[i]);
+        drinkOpts.append(drinkDiv);
+    }
+*/
+    </script>
+</body>
+
+</html>
