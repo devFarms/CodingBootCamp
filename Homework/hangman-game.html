@@ -47,6 +47,9 @@
     var asteriks;
     var asterik = [];
 
+    var userGuesses = "";
+    var userGuess = [];
+
     for (var i = 0; i < hangWord.length; i++) {
         asterik[i] = "<span class=\""+ hangWord[i] +"\">*</span>";
     };
@@ -62,21 +65,32 @@
 
     // run event when a letter is typed 
 
-    document.onkeyup = function() {
+    document.onkeyup = function(event) {
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
         console.log(userGuess);
-        document.getElementById("youGuessed").innerHTML = userGuess;
+       // userGuesses = userGuess.join(" ");
+
+        userGuesses += userGuess;
+
+        console.log(userGuesses);
+
+        document.getElementById("youGuessed").innerHTML = userGuesses;
+        
         // var hangwordTwo = hangWord;
         // console.log(hangwordTwo + "hangwordTwo");
 
+        /*
         for (var i = 0; i < hangWord.length; i++){
         	if (userGuess === hangWord[i]){
         		// alert("Match")
-        	document.getElementsByClassName(hangWord[i]).innerHTML = userGuess;
+        	document.getElementsByClassName(hangWord[i]).innerHTML = hangWord[i];
 
         	} else alert("No Match")
         };
+        */
+        
     };
+
     </script>
 </body>
 

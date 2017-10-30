@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Data Management</title>
+    <!-- BootStrap CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <container>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Employee Data Management</h1>
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Panel heading</div>
+                    <div class="panel-body">
+                        <div id="empTable"></div>
+
+                        <!-- Table 
+                        <table class="table">
+                        	<tr>
+                        		<th>Employee Name</th>
+                        		<th>Role</th>
+                        		<th>Start Date</th>
+                        		<th>Monthly Rate</th>
+                        	</tr>
+                         <tr>
+                     		<td id="empDisplay"></td>
+                     		<td id="roleDisplay"></td>
+                     		<td id="startDisplay"></td>
+                     		<td id="rateDisplay"></td>
+                        </table>
+                         -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <form>
+                    <div class="input-group">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Employee Name" id="nameInput">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Role" id="roleInput">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Start Date" id="startInput">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Monthly Rate" id="rateInput">
+                    </div>
+                    <button id="submitBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyDMahqzeI9GC0akd7et7Ak7TdVTcsdaQ1U",
+            authDomain: "mytestproject-869e1.firebaseapp.com",
+            databaseURL: "https://mytestproject-869e1.firebaseio.com",
+            projectId: "mytestproject-869e1",
+            storageBucket: "mytestproject-869e1.appspot.com",
+            messagingSenderId: "1068005581593"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <!-- jQuery script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- JavaScript -->
+        <script src="./js/logic.js">
+        </script>
+        
+    </container>
+</body>
+
+</html>

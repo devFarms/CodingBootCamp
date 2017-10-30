@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Click Button with Firebase!</title>
+
+</head>
+
+<body>
+
+  <input id="text-input" type="text"><button id="submit-button" onclick="addText()">Send Text</button>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- ================================================================================== -->
+
+  <!-- Firebase JavaScript Link -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+
+  <script>
+    // Initialize Firebase
+    // This is the code we copied and pasted from our app page
+    var config = {
+      apiKey: "AIzaSyDMahqzeI9GC0akd7et7Ak7TdVTcsdaQ1U",
+      authDomain: "mytestproject-869e1.firebaseapp.com",
+      databaseURL: "https://mytestproject-869e1.firebaseio.com",
+      projectId: "mytestproject-869e1",
+      storageBucket: "mytestproject-869e1.appspot.com",
+      messagingSenderId: "1068005581593"
+    };
+
+    firebase.initializeApp(config);
+
+    // Variables
+    // ================================================================================
+
+    // Get a reference to the database service
+    var database = firebase.database();
+
+    // Initializing our click count at 0
+    var grover =""
+
+    // Functions
+    // ================================================================================
+    
+      function addText() {
+        grover = $("#text-input").val();
+        console.log(grover);
+        return false;
+      };
+
+      
+    
+  </script>
+
+</body>
+
+</html>

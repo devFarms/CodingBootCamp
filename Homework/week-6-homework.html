@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy Search Week 6 Homework</title>
+
+</head>
+
+<body>
+  <p>
+    <div id="giphy-button"></div>
+    <!--<button id="giphy-button" data-person="Enter value here">Button</button>-->
+  </p>
+
+  <form id="giphy-form">
+      <label for="giphy-input">Search for it!</label>
+      <input type="text" id="giphy-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-giphy" type="submit" value="Boom!">
+    </form>
+
+  <div id="gifs-appear-here">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">// Function for displaying movie data
+      
+    var topics = ["Rodney Mullen", "Tron", "Bike", "Baseball"]
+
+      function renderButtons() {
+        $("#giphy-button").empty();
+
+        for (var i = 0; i < topics.length; i++) {
+          var a = $("<button>");
+          a.addClass("giphy");
+          a.attr("data-giphy", topics[i]);
+          a.text(topics[i]);
+          $("#giphy-button").append(a);
+          // console.log(a);
+        }
+      }
+
+      $("#add-giphy").on("click", function(event) {
+        event.preventDefault();
+
+        var topic = $("#giphy-input").val().trim();
+        topics.push(topic);
+
+        renderButtons();
+      });
+
+      renderButtons();
+
+
+      // ===============================================
+
+
+    $("button").on("click", function() {
+      
+
+      var apiKey = "&api_key=hTr8vaJpZtQ7rp7fRhqIZ8ANawiyohHe"
+      var giphySearch = $(this).attr("data-giphy");
+
+      // Build the URL
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphySearch + apiKey + "&limit=10" ;
+
+      // GET it with AJAX
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+        
+        .done(function(response) {
+          var results = response.data;
+
+          for (var i = 0; i < results.length; i++) {
+
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+
+              var gifDiv = $("<div class='item'>");
+              var rating = results[i].rating;
+              var p = $("<p>").text("Rating: " + rating);
+              var giphyImage = $("<img>");
+
+              giphyImage.attr("src", results[i].images.fixed_height_still.url);
+
+              gifDiv.append(p);
+              gifDiv.append(giphyImage);
+
+              $("#gifs-appear-here").prepend(gifDiv);
+            }
+          }
+        });
+    });
+    
+  </script>
+</body>
+
+</html>

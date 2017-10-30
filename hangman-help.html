@@ -4,7 +4,9 @@
 	<title>hangman</title>
 </head>
 <body>
-	<<script>
+	
+	<div id="game"></div>
+	<script>
 		
 		// capture user input
 
@@ -17,7 +19,21 @@
 		// INIT
 
 		var options = ["one", "two", "three"];
+		var gameDiv = document.getElementById("game");
+		var updateWordHTML = function(){
+			var HTML = "wins" + wins;
+			for(var i = 0; i = selectedWord.length; i++){
+				underScores += "_"
+			}
 
+			HTML = HTML + underScores;
+			gameDiv.innerHTML  = HTML;
+		}
+
+		var init = function(){
+			selectWord = selectWord();
+			updateWordHTML();
+		}
 		var wins;
 
 		var losses;
@@ -37,7 +53,7 @@
 		}
 
 
-
+		init();
 		
 
 
