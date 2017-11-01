@@ -23,22 +23,11 @@ firebaseRef.on("child_added", snap => {
 	var trainDestination = snap.child("trainDestination").val();
 	var trainFirst = snap.child("trainFirst").val();
 	var trainFrequency = snap.child("trainFrequency").val();
+    trainFrequency = Number(trainFrequency);
 
-/*  How to calculate trainNext 
-
-Take trainFirst and add 45 minutes to each loop. Check the product against the current time. If 
-
-trainNext = currentTime + 45 minutes.
-If trainNext is less than currentTime add another 45 minutes.
-Else, display value of trainNext
-
-*/
-
-    // var trainNext = ;
-    // var trainNext = new Date(moment().add(45, 'm').toDate() * 1000);
     var currentTime = new Date(),
         trainNext = new Date (currentTime);
-        trainNext.setMinutes(currentTime.getMinutes() + /* trainFrequency */ 1440);
+        trainNext.setMinutes(currentTime.getMinutes() + trainFrequency);
     console.log(trainFrequency);
     console.log(trainNext);
 
