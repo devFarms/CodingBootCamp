@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Train Schedule</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Bootstrap Tutorial</h1>
+            <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+            <div id="current-time"></div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Train Timetable</div>
+            <div class="panel-body">
+                <p>All departure times apply to Los Angeles Union Station</p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (min)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody id="train-timetable">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Add a Train</div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="train-name">Train Name:</label>
+                        <input type="text" class="form-control" id="train-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="train-destination">Destination:</label>
+                        <input type="text" class="form-control" id="train-destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="train-first">First Train Time (hh:mm - Military Time):</label>
+                        <input type="text" class="form-control" id="train-first">
+                    </div>
+                    <div class="form-group">
+                        <label for="train-frequency">Frequency (mins):</label>
+                        <input type="text" class="form-control" id="train-frequency">
+                    </div>
+                    <button type="submit" id="btn-add-train" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAbVr9YeSFtv-pjwxnF3o239pZTAad8pJg",
+        authDomain: "uci-bootcamp-train-shedules.firebaseapp.com",
+        databaseURL: "https://uci-bootcamp-train-shedules.firebaseio.com",
+        projectId: "uci-bootcamp-train-shedules",
+        storageBucket: "",
+        messagingSenderId: "139325938506"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script
+    // Initialize JQuery
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+    </script>
+    <script
+    // Initialize Moment JS
+        type="text/javascript"
+        src="https://momentjs.com/downloads/moment-with-locales.min.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="./js/train.js">
+    </script>
+
+</body>
+
+</html>
