@@ -8,31 +8,53 @@ var trainName = "";
 var trainDestination = "";
 var trainFirst = "";
 var trainFrequency = 0;
-var trainNext = 0;
 
 // Calculated variables
-var nextTrain = 0;
-var minutesAway = 0;
+var trainNext = 0;
+var trainMinutesAway = 0;
+
+var now = moment().format();
 
 var firebaseRef = firebase.database().ref();
-
-
 
 firebaseRef.on("child_added", snap => {
 	var trainName = snap.child("trainName").val();
 	var trainDestination = snap.child("trainDestination").val();
 	var trainFirst = snap.child("trainFirst").val();
+    trainFirst = moment(trainFirst, "hh:mm:ss", false).format('LT');
 	var trainFrequency = snap.child("trainFrequency").val();
     trainFrequency = Number(trainFrequency);
 
+    function addTime(){
+        moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll");
+    }
+
+    trainNext = moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll");
+
+    if ( trainNext < now ) {
+        alert("Luke")
+    } else {
+        alert("Vader")
+    };
+
+    trainMinutesAway = moment().to(trainNext, "hh:mm:ss", false);
+
+    console.log("Current time: " + now);
+    console.log(trainName);
+    console.log(trainDestination);
+    console.log(trainFirst);
+    console.log(trainNext);
+    console.log(trainFrequency);
+
+/*
     var currentTime = new Date(),
         trainNext = new Date (currentTime);
         trainNext.setMinutes(currentTime.getMinutes() + trainFrequency);
     console.log(trainFrequency);
     console.log(trainNext);
+*/
 
-
-	$("#train-timetable").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>Every " + trainFrequency + " minutes</td><td>" + trainNext + "</td><td>Minutes Away Calc Here</td><td><button type='button' class='btn btn-danger'>Cancel Train</button></td></tr>")
+	$("#train-timetable").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>Every " + trainFrequency + " minutes</td><td>" + trainNext + "</td><td>" + trainMinutesAway + "</td><td><button type='button' class='btn btn-danger'>Remove Train</button></td></tr>")
 });
 
 
