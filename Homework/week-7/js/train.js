@@ -31,7 +31,10 @@ firebaseRef.on("child_added", snap => {
 
     trainNext = moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll");
 
-    if ( trainNext < now ) {
+    // trainNext should first check to see if current time is greater than trainFirst. 
+
+
+    if ( trainFirst < now ) {
         alert("Luke")
     } else {
         alert("Vader")
