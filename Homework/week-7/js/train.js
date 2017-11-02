@@ -21,7 +21,7 @@ firebaseRef.on("child_added", snap => {
 	var trainName = snap.child("trainName").val();
 	var trainDestination = snap.child("trainDestination").val();
 	var trainFirst = snap.child("trainFirst").val();
-    trainFirst = moment(trainFirst, "hh:mm:ss", false).format('LT');
+    trainFirst = moment(trainFirst, "hh:mm:ss", false).format('llll');
 	var trainFrequency = snap.child("trainFrequency").val();
     trainFrequency = Number(trainFrequency);
 
@@ -29,15 +29,18 @@ firebaseRef.on("child_added", snap => {
         moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll");
     }
 
-    trainNext = moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll");
+    // trainNext = moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll");
 
     // trainNext should first check to see if current time is greater than trainFirst. 
 
 
     if ( trainFirst < now ) {
-        alert("Luke")
+        alert("First train: " + trainFirst);
+        alert("Now: " + now);
+        trainNext = trainFirst
     } else {
-        alert("Vader")
+        // alert(moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll"))
+        trainNext = moment(trainFirst, "hh:mm:ss a", false).add(trainFrequency, "m").format("llll")
     };
 
     trainMinutesAway = moment().to(trainNext, "hh:mm:ss", false);
