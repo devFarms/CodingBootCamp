@@ -1,72 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Place searches</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
+    #map {
         height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
+    }
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
         height: 100%;
         margin: 0;
         padding: 0;
-      }
+    }
     </style>
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-      var map;
-      var infowindow;
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-      function initMap() {
-        var myConcert = {lat: 33.6405, lng: -117.8443};
+    var map;
+    var infowindow;
+    var latitude = 34.0430;
+    var longitude = -118.2673;
+
+    function initMap() {
+        // var myConcert = { lat: 33.6405, lng: -117.8443 };
+        // var myConcert = { lat: johnsGlobal[*]._embedded.venues[0].location.latitude, lng: johnsGlobal[*]._embedded.venues[0].location.latitude}
+        console.log(latitude,longitude);
+        
+        var myConcert = { lat: latitude, lng: longitude }
+        var myConcertIcon = "https://www.coastway.com/images/ico-locations.svg"
 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: myConcert,
-          zoom: 14
+            center: myConcert,
+            zoom: 13
+        });
+
+        var marker = new google.maps.Marker({
+          position: myConcert,
+          icon: myConcertIcon,
+          map: map
         });
 
         infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: myConcert,
-          radius: 4000,
-          type: ['cafe'],
-          openNow: true
+        
+        
+
+        var restaurants = new google.maps.places.PlacesService(map);
+        restaurants.nearbySearch({
+            location: myConcert,
+            radius: 4000,
+            type: ['restaurant'],
+            openNow: true
         }, callback);
-      }
+    }
 
-      function callback(results, status) {
+    function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
+            for (var i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+            }
         }
-      }
+    }
 
-      function createMarker(place) {
+    function createMarker(place) {
+        var myRestaurantIcon = "https://www.clker.com/cliparts/y/W/e/8/a/1/red-plate-with-knife-and-fork-th.png"
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
+            icon: myRestaurantIcon,
+            map: map,
+            position: place.geometry.location
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
         });
-      }
+    }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqsGRoeCFaylDOCU1XPjy7liKohqa_Qg&libraries=places&callback=initMap" async defer></script>
-  </body>
+</body>
+
 </html>

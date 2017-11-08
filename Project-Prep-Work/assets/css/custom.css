@@ -1,0 +1,69 @@
+html { 
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+body {
+	background: rgba(0, 0, 0 , 0);
+}
+
+#lgList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.eventElemLg {
+    display: inline-block;
+    border-style: groove;
+    border-width: 2px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 250px; 
+
+}
+
+.eventElemLg > img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+
+}
+
+.eventElemLg > p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.eventElemLg:hover {
+    box-shadow: -10px 10px 3pt 2pt rgb(87, 162, 248);
+}
+
+.eventElemSm {
+    text-align: center;
+    border-style: groove;
+    border-width: 2px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.eventElemSm:hover {
+background: grey;
+color: white;
+}
+
+#fbLogout {
+	display: none;
+}
+
+#fbProfilePic {
+/*	width: 50px;
+	height: 50px;*/
+	display: none;
+}
+
+
+
