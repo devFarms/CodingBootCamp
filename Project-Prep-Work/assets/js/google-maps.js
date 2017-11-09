@@ -68,11 +68,11 @@
 
 //https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqsGRoeCFaylDOCU1XPjy7liKohqa_Qg&libraries=places&callback=initMap" async defer></script>
 */
-console.log("google maps js here");
 
-$("#basicModal").on("shown.bs.modal", function(e){
-    console.log("hot damn!")
-});
+$("#eventBtn").click(function(e){
+    e.preventDefault();
+    console.log("test");
+})
 
 
 

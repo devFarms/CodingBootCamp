@@ -22,9 +22,9 @@ $("#searchBtn").on("click", function(event) {
                 var eventButton = $("<button>");
                 eventButton.attr("type", "button");
                 eventButton.attr("class", "btn event-button");
-                //eventButton.attr("data-remote", "./google-map.html")
                 eventButton.attr("data-toggle", "modal");
                 eventButton.attr("data-target", "#musicPlanitModal");
+                eventButton.attr("id", "eventBtn");
                 eventButton.text("Details");
 
                 var eventImage = $("<img>");
@@ -47,10 +47,14 @@ $("#searchBtn").on("click", function(event) {
                 divContainerSm.attr("data-index", i);
                 divContainerSm.html("<p>" + eventName + "</p>");
                 $("#smList").prepend(divContainerSm);
-
             }
+
+            $("#eventBtn").click(function(e){
+    e.preventDefault();
+    console.log(eventName);
+})
             
-            console.log(response._embedded.events[0]._embedded.venues[0].city.name);
-            console.log(queryURL);
+            //console.log(response._embedded.events[0]._embedded.venues[0].city.name);
+            //console.log(queryURL);
         })
 });
