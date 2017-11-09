@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html>
+/*
 
-<head>
-    <title>Place searches</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-    #map {
-        height: 100%;
-    }
-    /* Optional: Makes the sample page fill the window. */
 
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    </style>
-    <script>
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
@@ -49,7 +31,7 @@
         });
 
         infowindow = new google.maps.InfoWindow();
-        
+
 
         var restaurants = new google.maps.places.PlacesService(map);
         restaurants.nearbySearch({
@@ -84,12 +66,19 @@
         });
     }
 
-    </script>
-</head>
+//https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqsGRoeCFaylDOCU1XPjy7liKohqa_Qg&libraries=places&callback=initMap" async defer></script>
+*/
+console.log("google maps js here");
 
-<body>
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqsGRoeCFaylDOCU1XPjy7liKohqa_Qg&libraries=places&callback=initMap" async defer></script>
-</body>
+$("#basicModal").on("shown.bs.modal", function(e){
+    console.log("hot damn!")
+});
 
-</html>
+
+
+/*
+console.log("This is the event search global variable: " + eventSearch)
+console.log("============================================================")
+console.log(response._embedded.events[0]._embedded.venues[0].city.name);
+console.log(queryURL);
+*/
