@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Planit - Concert Planning Done Right!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        h3 {
+            font-size: 150%;
+        }
+        .event-box {
+            height: 400px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-button {
+            bottom: 0;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" id="searchString">
+                </div>
+                <button type="submit" class="btn btn-default" id="searchBtn">Submit</button>
+            </form>
+        </div>
+        <div class="row">
+            <div id="lgList"></div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="musicPlanitModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Title for the Modal</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Body of the modal</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>  
+        </div>
+    </div>
+    
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- bootstrap jquery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/js/fb.js"></script>
+    <script type="text/javascript" src="./assets/js/ticketmaster.js"></script>
+    <script type="text/javascript" src="./assets/js/google-maps.js"></script>
+</body>
+
+</html>

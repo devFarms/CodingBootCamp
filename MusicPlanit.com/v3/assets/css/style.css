@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
+
+/* Styles */
+  html,body {
+  height:100%;
+  font-family: 'Roboto', sans-serif;
+  margin:0;
+}
+
+.content {
+  height:100%;
+  min-height:100%; /*for mozilla*/
+
+}
+
+html>body .content {
+  height:auto;
+}
+
+#one {
+  background-color: rgb(255,255,255);
+  /* background: url(http://cloud.niklausgerber.com/1b0r2D2Z1y0J/dark-red.png) center 10px no-repeat scroll #520E24;
+  color: #dccfd3;
+  font-size: 200%;
+  padding-top: 200px;
+  padding-bottom: -200px;
+  padding-left: 15%;
+  padding-right: 15%;
+  text-align: center; */
+}
+
+#two {
+  background-color: rgb(235,235,235);
+}
+
+#three {
+  background-color: rgb(255,255,255);
+}
+
+#four {
+  background-color: rgb(235,235,235);
+}
+
+#five {
+  background-color: rgb(255,255,255);
+}
+
+#map {
+  background-color: gray;
+  height: 1000px;
+}
