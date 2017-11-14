@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>autocomplete</title>
+</head>
+<body>
+
+	 <input placeholder="Placeholder" id="input-search-city" type="text">
+
+
+	 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	 <script>
+	 	function activatePlacesSearch(){
+			var input = document.getElementById('input-search-city');
+			var autocomplete = new google.maps.places.Autocomplete(input);
+		}
+	 </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHZTkBCcadYHRcvz0_xGnftVtDCjaQH0k&libraries=places&callback=activatePlacesSearch"></script>
+
+</body>
+</html>

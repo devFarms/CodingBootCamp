@@ -49,11 +49,11 @@ $("#searchBtn").on("click", function(event) {
                 $("#smList").prepend(divContainerSm);
             }
 
-            $("#eventBtn").click(function(e){
-    e.preventDefault();
-    console.log(eventName);
-})
-            
+            $("#eventBtn").click(function(e) {
+                e.preventDefault();
+                console.log(eventName);
+            })
+
             //console.log(response._embedded.events[0]._embedded.venues[0].city.name);
             //console.log(queryURL);
         })

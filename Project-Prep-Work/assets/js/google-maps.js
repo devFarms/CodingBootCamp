@@ -69,10 +69,7 @@
 //https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqsGRoeCFaylDOCU1XPjy7liKohqa_Qg&libraries=places&callback=initMap" async defer></script>
 */
 
-$("#eventBtn").click(function(e){
-    e.preventDefault();
-    console.log("test");
-})
+
 
 
 

@@ -24,11 +24,13 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="btn-search-city" type="text">
+                            <input placeholder="Placeholder" id="input-search-city" type="text">
                             <label for="search-city">Search by City</label>
                         </div>
+                        <div class="col s12 m6"><input placeholder="Please select a start date."type="text" class="datepicker" id="start-date"></div>
+                        <div class="col s12 m6"><input placeholder="Please select a end date." type="text" class="datepicker" id="end-date"></div>
                     </div>
-                    <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+                    <button class="btn-large waves-effect waves-light" type="submit" name="action" id="btn-search-city">Submit
                         <i class="material-icons right">send</i>
                     </button>
                 </form>
@@ -124,6 +126,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="./assets/js/logic.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHZTkBCcadYHRcvz0_xGnftVtDCjaQH0k&libraries=places&callback=activatePlacesSearch"></script>
 </body>
 
 </html>
