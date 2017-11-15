@@ -26,12 +26,22 @@
                         <div class="input-field col s12">
                             <input placeholder="Placeholder" id="input-search-city" type="text">
                             <label for="search-city">Search by City</label>
+
+                            <div id="hide-us" style=" display: none;">
+                                <input class="field" id="street_number" disabled="true"></input>
+                                <input class="field" id="route" disabled="true"></input>
+                                <input class="field" id="locality" disabled="true"></input>
+                                <input class="field" id="administrative_area_level_1" disabled="true"></input>
+                                <input class="field" id="postal_code" disabled="true"></input>
+                                <input class="field" id="country" disabled="true"></input>
+                              </div>
+
                         </div>
                         <div class="col s12 m6"><input placeholder="Please select a start date."type="text" class="datepicker" id="start-date"></div>
                         <div class="col s12 m6"><input placeholder="Please select a end date." type="text" class="datepicker" id="end-date"></div>
                     </div>
-                    <button class="btn-large waves-effect waves-light" type="submit" name="action" id="btn-search-city">Submit
-                        <i class="material-icons right">send</i>
+                    <button class="btn-large waves-effect waves-light" type="submit" name="action" id="btn-search-city">Search
+                        <i class="material-icons right">search</i>
                     </button>
                 </form>
             </div>
@@ -126,7 +136,9 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="./assets/js/logic.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHZTkBCcadYHRcvz0_xGnftVtDCjaQH0k&libraries=places&callback=activatePlacesSearch"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHZTkBCcadYHRcvz0_xGnftVtDCjaQH0k&libraries=places&callback=activatePlacesSearch"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHZTkBCcadYHRcvz0_xGnftVtDCjaQH0k&libraries=places&callback=initAutocomplete"
+    async defer></script>
 </body>
 
 </html>
