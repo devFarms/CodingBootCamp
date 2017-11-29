@@ -51,7 +51,7 @@
     var userGuess = [];
 
     for (var i = 0; i < hangWord.length; i++) {
-        asterik[i] = "<span class=\""+ hangWord[i] +"\">*</span>";
+        asterik[i] = "<span id=\""+ hangWord[i] +"\">*</span>";
     };
 
     for (var i = 0; i < hangWord.length; i++) {
@@ -67,8 +67,8 @@
 
     document.onkeyup = function(event) {
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log(userGuess);
-       // userGuesses = userGuess.join(" ");
+        // console.log(userGuess);
+        // userGuesses = userGuess.join(" ");
 
         userGuesses += userGuess;
 
@@ -79,15 +79,15 @@
         // var hangwordTwo = hangWord;
         // console.log(hangwordTwo + "hangwordTwo");
 
-        /*
+        
         for (var i = 0; i < hangWord.length; i++){
         	if (userGuess === hangWord[i]){
-        		// alert("Match")
-        	document.getElementsByClassName(hangWord[i]).innerHTML = hangWord[i];
+        		// alert("You selected " + userGuess + "!. That is a match.")
+                document.getElementById(userGuess).innerHTML = userGuess;
 
         	} else alert("No Match")
         };
-        */
+        
         
     };
 
