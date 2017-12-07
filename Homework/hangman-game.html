@@ -21,138 +21,102 @@
 <body>
     <div id="wrapper">
         <h1>What word am I thinking of?</h1>
-        <div id="displayAsteriks" style="font-size: 1000%;"></div>
-        <div id="youGuessed" style="font-size: 500%;"></div>
+        <div id="asteriks-needed" style="font-size: 1000%;"></div>
+        <div id="no-match" style="font-size: 500%;"></div>
+        <div id="match-attempts"></div>
     </div>
 
     <script type="text/javascript">
-    var hangWords = [ "ollie", "kickflip", "method", "caballaerial" ];
+    
+    var wordBank = [ "ollie", "kickflip", "method", "caballaerial" ];
 
-    var hangWord = "";
-    var hangWordLetters = [];
-    var asteriks = 0;
-    var asteriksMatches = [];
-    var noMatch = [];
-
+    var wordSelection = ""; // Placeholder for the word used in each game.
+    var wordLetters = []; // This array will hold the letters split from the "wordSelection" variable.
+    var asteriksNeeded = 0; // This is the number of asteriks used as placeholders for the letters from the "wordLetters" variable.
+    var asteriksMatches = []; // This array will store correct letter selections and remaining unmatched letter placeholders. 
+    var noMatch = []; // This array will hold all the incorrect guesses.
     var gamesWon = 0;
     var gamesLost = 1;
-    var gameGuesses = 12;
+    var matchAttempts = 12;
 
-    function newGame(){
-    
-    
-    noMatch = [];
-    console.log("this is wrong guesses in startGame", wrongGuesses);
-    numGuesses = 15;
-    asteriksMatches = [];
+    // Starts a new game
+    function newGame (){
 
+        // Reset the arrays for the start of the new game
+        var matchAttempts = 12;
+        var asteriksMatches = []; 
+        var noMatch = 0;
+        // Check variables for newGame.
+        console.log( "----- a new game has been started -----" );
+        console.log( "matchAttempts", matchAttempts );
+        console.log( "asteriksMatches", asteriksMatches );
+        console.log( "noMatch", noMatch );
 
-    hangWord = hangWords[Math.floor(Math.random() * hangWords.length)];
-    lettersInChosenWord = chosenWord.split("");
-    asteriks = lettersInChosenWord.length;
-    console.log(chosenWord);
-    console.log(numBlanks)
+        // Select work, split up the letters and count them.
+        wordSelection = wordBank[Math.floor(Math.random() * wordBank.length)];
+        wordLetters = wordSelection.split("");
+        asteriksNeeded = wordLetters.length;
+        console.log( "----- word selected, split and letters counted -----" );
+        console.log( "wordSelection", wordSelection );
+        console.log( "asteriksNeeded", asteriksNeeded );
 
-    for(var i = 0; i < numBlanks; i++){
-        blanksAndSuccesses.push("_");
-    }
-    console.log(blanksAndSuccesses);
-    document.getElementById('word-blank').innerHTML = blanksAndSuccesses.join(" ");
-    document.getElementById('guesses-left').innerHTML = numGuesses;
+        for (var i = 0; i < asteriksNeeded; i++){
+            asteriksMatches.push(" * ");
+        };
 
-
-
-    }
-
+        document.getElementById("asteriks-needed").innerHTML = asteriksMatches;
+        document.getElementById("match-attempts").innerHTML = matchAttempts;
+    };
 
     function checkLetters(letter){
-        /*
-        1. Compare the letter the user picks matches any of the letters in the word
-        2. I want a conditional statement to determine if the letter the user picked
-        is in the word. If so, do something, if not, do something else
-        3. If the user is wrong we want to decrease the numGuesses variables by one
-        */
-
+    
         var letterInWord = false;
-
-        for(var i = 0; i < numBlanks; i++){
-            if(chosenWord[i] === letter){
+    
+        for(var i = 0; i < asteriksNeeded; i++){
+            if(wordSelection[i] === letter){
                 letterInWord = true;
-
             }
         }
-
+    
         if(letterInWord){
-            for(i = 0; i < numBlanks; i++){
-                if(chosenWord[i] === letter){
-                blanksAndSuccesses[i] = letter;
-
+            for(i = 0; i < asteriksNeeded; i++){
+                if(wordSelection[i] === letter){
+                asteriksMatches[i] = letter;
             }
-
+    
             }
         }else{
-            numGuesses --;
-            wrongGuesses.push(letter)
+            matchAttempts --;
+            noMatch.push(letter)
         }
-
-        /*
-        to check if a letter is already in the wrong guesses array. What we want to do
-        is set up an if/else conditional that will run a for loop that will iterate over
-        all the letters and then use the if/else to check if it it already exists.
-        */
-
-
     }
-
 
     function roundComplete(){
-        /*
-        1. Its going to update the HTML with letters that are in the word
-        2. Its going to update the HTML with guesses we have left
-        3. Its going to update the HTML to show the wrong guesses
-        4. Its going to determine whether the use won the game or not
-        */
+        document.getElementById('asteriks-needed').innerHTML = asteriksMatches.join(" ");
+        document.getElementById('match-attempts').innerHTML = matchAttempts;
+        document.getElementById('no-match').innerHTML = noMatch.join(" ");
 
-        document.getElementById('word-blank').innerHTML = blanksAndSuccesses.join(" ");
-        document.getElementById('guesses-left').innerHTML = numGuesses;
-        document.getElementById('wrong-guesses').innerHTML = wrongGuesses.join(" ");
-
-
-        // if(blanksAndSuccesses.indexOf(letter >= 1)){
-        //     console.log(letter)
-        // }
-        console.log(lettersInChosenWord);
-        console.log(blanksAndSuccesses);
-        if(lettersInChosenWord.join(" ") === blanksAndSuccesses.join(" ")){
-            winCounter++;
-            alert("You win!!");
-            document.getElementById('win-counter').innerHTML = winCounter;
-            startGame();
-        }else if(numGuesses === 0){
-            document.getElementById('loss-counter').innerHTML  = lossCounter ++;
-            document.getElementById('wrong-guesses').innerHTML = "";
-            alert("you don't have any more guesses");        
-            startGame();
+    if(wordLetters.join(" ") === asteriksMatches.join(" ")){
+        gamesWon++;
+        alert("You win!!");
+        // document.getElementById('win-counter').innerHTML = winCounter;
+        newGame();
+    }else if(matchAttempts === 0){
+        //document.getElementById('loss-counter').innerHTML  = lossCounter ++;
+        //document.getElementById('wrong-guesses').innerHTML = "";
+        alert("you don't have any more guesses");        
+        newGame();
         }
-
-
-
-
     }
-    startGame();
+
+    newGame();
+
     document.onkeyup = function(event){
-        /*
-        1. its going to take in the letter that we type in
-        2. its going to pass it through the CheckLetter function 
-        */
         var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
         console.log("this is the letter we typed", letterGuessed)
         checkLetters(letterGuessed)
         roundComplete();
-
-
     }
-   
 
     </script>
 </body>
