@@ -21,7 +21,7 @@
 <body>
     <div id="wrapper">
         <h1>What word am I thinking of?</h1>
-        <div id="asteriks-needed" style="font-size: 1000%;"></div>
+        <div id="asteriks-needed" style="font-size: 750%;"></div>
         <div id="no-match" style="font-size: 500%;"></div>
         <div id="match-attempts"></div>
     </div>
@@ -64,7 +64,7 @@
             asteriksMatches.push(" * ");
         };
 
-        document.getElementById("asteriks-needed").innerHTML = asteriksMatches;
+        document.getElementById("asteriks-needed").innerHTML = asteriksMatches.join(" ");
         document.getElementById("match-attempts").innerHTML = matchAttempts;
     };
 
