@@ -18,6 +18,7 @@ con.connect(function (err) {
     //     });
 });
 
+// List all the products
 function listProducts() {
     var query = "SELECT * FROM products";
     con.query(query, function (err, res) {
